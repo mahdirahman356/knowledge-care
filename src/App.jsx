@@ -1,7 +1,6 @@
 
 import './App.css'
 import BlogData from './Blogs/BlogData'
-import BookMark from './BookMark/BookMark'
 import Header from './Header/Header'
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
      <Header></Header>
      <div className="md:flex w-[95%] md:w-[80%] mx-auto mt-14">
      <BlogData></BlogData>
-     <BookMark></BookMark>
+     {/* <BookMark></BookMark> */}
      </div>
     </>
   )

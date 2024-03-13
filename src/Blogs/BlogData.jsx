@@ -12,23 +12,36 @@ const BlogData = () => {
      .then(res => res.json())
      .then(data => setBolg(data))
     },[]) 
-    
-    let [bookMark,setBookMark] = useState([])
+         
+    let [bookMark, setBookMark] = useState([]);
     let hendelBookMarkButton = (bM) => {
-        let bookM = [...bookMark,bM]
-        setBookMark(bookM)
-    }
+        let bookM = [...bookMark, bM]
+    setBookMark(bookM);
+};
 
+   let [time,setTime] = useState(0)
+    let hendelSpentTime = (timeSet,id) => {
+        let totalTime = time + timeSet
+        setTime(totalTime)
+        let removeBM = bookMark.filter(bookMark =>  bookMark.id !== id)
+        setBookMark(removeBM)
+    }
+       
     return (
-        <div className="md:w-[70%]">
+        <div className="md:flex">
+           <div>
            {
                 blog.map((blog,index) => <Blogs
                  key={index}
                  blog={blog}
                  hendelBookMarkButton ={hendelBookMarkButton}
+                 hendelSpentTime ={hendelSpentTime}
                   ></Blogs>)
             }
-            <BookMark bookMark ={bookMark}></BookMark>
+           </div>
+            
+           <BookMark bookMark ={bookMark} time={time}></BookMark>
+            
         </div>
     );
 };

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'; 
 import { FaRegBookmark } from "react-icons/fa";
 
-const Blogs = ({blog,hendelBookMarkButton}) => {
-    let {cover_image,title,author_name,author_profile_image,post_date,hashtags,mark_as_read_text,read_time} = blog
+const Blogs = ({blog,hendelBookMarkButton,hendelSpentTime}) => {
+    let {id,cover_image,title,author_name,author_profile_image,post_date,hashtags,mark_as_read_text,read_time} = blog
     return (
         <div className="md:px-7 space-y-5 mb-12">
              {/* img */}
@@ -21,7 +21,7 @@ const Blogs = ({blog,hendelBookMarkButton}) => {
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <p className="font-[400">{read_time} min read </p>
-                <button onClick={() => hendelBookMarkButton(title)}><FaRegBookmark /></button>
+                <button onClick={() => hendelBookMarkButton(blog)}><FaRegBookmark /></button>
               </div> 
            </div>
             
@@ -36,14 +36,15 @@ const Blogs = ({blog,hendelBookMarkButton}) => {
             </div>
 
         {/* mark as red */}
-            <p className="text-[#6047EC] font-semibold underline">{mark_as_read_text}</p>
+            <button className="text-[#6047EC] font-semibold underline" onClick={()=>hendelSpentTime(read_time,id)}>{mark_as_read_text}</button>
         </div>
     );
 };
 
 Blogs.propTypes = {
     blog: PropTypes.object.isRequired,
-    hendelBookMarkButton:PropTypes.func.isRequired
+    hendelBookMarkButton:PropTypes.func.isRequired,
+    hendelSpentTime: PropTypes.func.isRequired
   }
   
 export default Blogs;
