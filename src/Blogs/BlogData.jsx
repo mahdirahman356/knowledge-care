@@ -15,7 +15,7 @@ const BlogData = () => {
          
     let [bookMark, setBookMark] = useState([]);
     let hendelBookMarkButton = (bM) => {
-        let bookM = [...bookMark, bM]
+    let bookM = [...bookMark, bM]
     setBookMark(bookM);
 };
 
