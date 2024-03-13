@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FaBookmark } from "react-icons/fa";
 
 const Blogs = ({blog,hendelBookMarkButton,hendelSpentTime}) => {
-    let {id,cover_image,title,author_name,author_profile_image,post_date,hashtags,mark_as_read_text,read_time} = blog
+    let {id,cover_image,title,description,author_name,author_profile_image,post_date,hashtags,mark_as_read_text,read_time} = blog
    
 
     return (
@@ -29,11 +29,14 @@ const Blogs = ({blog,hendelBookMarkButton,hendelSpentTime}) => {
             
             {/* title */}
             <h1 className="text-3xl font-bold text-gray-700">{title}</h1>
+              
+            {/* description   */}
+            <p className=" text-gray-600 text-[12px] md:text-[16px] md:w-[70%]">{description}</p>
 
             {/* hashtags */}
             <div className="flex gap-4">
             {
-                hashtags.map((hash,index)=> <p className="text-[#11111199] font-[400] text-[12px] md:text-[18px]" key={index}>#{hash}</p>)
+                hashtags.map((hash,index)=> <p className="font-[400] text-[#11111199] text-[12px] md:text-[16px]" key={index}>#{hash}</p>)
             }
             </div>
 

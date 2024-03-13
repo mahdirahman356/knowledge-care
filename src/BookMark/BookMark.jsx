@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const BookMark = ({bookMark,time}) => {
   console.log(bookMark)    
     return (
-         <div className="md:w-[30%] space-y-3">
+         <div className="md:w-[30%] space-y-3 mb-6">
 
 
             <div className="bg-[#6047EC1A] p-6 text-center rounded-xl border-[1px] border-[#6047EC99]">
